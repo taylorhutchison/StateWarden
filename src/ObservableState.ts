@@ -10,11 +10,11 @@ export abstract class ObservableState<T> {
         this._state = new BehaviorSubject(initialState);
     }
 
-    subscribe(observer: (next: T) => void) {
+    subscribe(observer: (next: Readonly<T>) => void): void {
         this._state.subscribe(observer);
     }
 
-    select(selector: (m: T) => any) {
+    select(selector: (m: Readonly<T>) => any ) {
         const subject = new Subject();
         let currentValue = selector(this._state.value);
         this._state.subscribe((next) => {
@@ -27,7 +27,7 @@ export abstract class ObservableState<T> {
         return subject;
     }
 
-    protected update(func: (current: T) => T) {
+    protected update(func: (current: Readonly<T>) => T) {
         const nextState = func(this._state.value);
         this.deepFreeze(nextState);
         this._state.next(nextState);
