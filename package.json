@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tsc --project tsconfig.spec.json && karma start && rm -rf out-test"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,18 @@
   },
   "homepage": "https://github.com/taylorhutchison/ObservableState#readme",
   "dependencies": {
+    "@types/jasmine": "^3.5.0",
+    "@types/node": "^13.1.1",
+    "jasmine": "^3.5.0",
+    "karma": "^4.4.1",
+    "karma-typescript": "^4.1.1",
     "rxjs": "^6.5.4",
+    "ts-node": "^8.5.4",
     "typescript": "^3.7.4"
+  },
+  "devDependencies": {
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-jasmine": "^2.0.1",
+    "karma-safari-launcher": "^1.0.0"
   }
 }
