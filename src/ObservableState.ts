@@ -9,9 +9,13 @@ export abstract class ObservableState<T> {
         this.deepFreeze(initialState);
         this._state = new BehaviorSubject(initialState);
     }
-
-    subscribe(observer: (next: Readonly<T>) => void): Subscription {
-        return this._state.subscribe(observer);
+    
+    subscribe(next: null, error: null, complete: () => void): Subscription;
+    subscribe(next: null, error: (error: any) => void, complete?: () => void): Subscription;
+    subscribe(next: (value: Readonly<T>) => void, error: null, complete: () => void): Subscription;
+    subscribe(next?: (value: T) => void, error?: (error: any) => void, complete?: () => void): Subscription;
+    subscribe(next?: (value: T) => void, error?: (error: any) => void, complete?: () => void): Subscription {
+        return this._state.subscribe(next, error, complete);
     }
 
     select(selector: (m: Readonly<T>) => any ) {
