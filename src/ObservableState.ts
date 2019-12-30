@@ -1,4 +1,4 @@
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, Subject, Subscription } from 'rxjs';
 
 export abstract class ObservableState<T> {
 
@@ -10,8 +10,8 @@ export abstract class ObservableState<T> {
         this._state = new BehaviorSubject(initialState);
     }
 
-    subscribe(observer: (next: Readonly<T>) => void): void {
-        this._state.subscribe(observer);
+    subscribe(observer: (next: Readonly<T>) => void): Subscription {
+        return this._state.subscribe(observer);
     }
 
     select(selector: (m: Readonly<T>) => any ) {
