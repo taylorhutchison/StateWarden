@@ -1,27 +1,17 @@
-import { ObservableState } from '../src/ObservableState';
+import { ITestState } from './ITestState';
+import { TestObservableState } from './TestObservableState';
+import { initialState1 as initialState } from './InitialState';
+import { take, skip } from 'rxjs/operators';
 
 describe('Subscribing to the observable State', () => {
 
-    interface ITestState {
-        name: string;
-    }
-
-    const initialState: ITestState = {
-        name: 'Test State'
-    }
-    
-    class TestObservableState extends ObservableState<ITestState> {
-        constructor() {
-            super(initialState);
-        }
-    }
 
     let observableState: TestObservableState;
     let testState: ITestState;
 
     beforeEach(() => {
-        observableState = new TestObservableState();
-    })
+        observableState = new TestObservableState(initialState);
+    });
 
 
     it('should have the ability to unsubscribe to the observable state', () => {
@@ -31,5 +21,20 @@ describe('Subscribing to the observable State', () => {
         });
 
         expect(subscriber.unsubscribe).toBeTruthy();
+    });
+
+    describe("subscribing with an error callback", () => {
+
+        it('should', () => {
+            let errorSet = false;
+
+            observableState.pipe(skip(1), take(1)).subscribe((state) => {
+                testState = state;
+            }, (err) => { errorSet = true; });
+
+            observableState.throwError();
+    
+            expect(errorSet).toBeTrue();
+        });
     });
 });

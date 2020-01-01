@@ -1,0 +1,5 @@
+import { ITestState } from "./ITestState";
+
+export const initialState1: ITestState = {
+    name: 'Test State'
+}

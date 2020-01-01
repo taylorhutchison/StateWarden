@@ -1,26 +1,15 @@
-import { ObservableState } from '../src/ObservableState';
+import { ITestState } from './ITestState';
+import { TestObservableState } from './TestObservableState';
+import { initialState1 as initialState } from './InitialState';
 
 describe('Deriving a class from Observable State', () => {
 
-    interface ITestState {
-        name: string;
-    }
-
-    const initialState: ITestState = {
-        name: 'Test State'
-    }
-    
-    class TestObservableState extends ObservableState<ITestState> {
-        constructor() {
-            super(initialState);
-        }
-    }
 
     let observableState: TestObservableState;
     let testState: ITestState;
 
     beforeEach(() => {
-        observableState = new TestObservableState();
+        observableState = new TestObservableState(initialState);
     })
 
 
