@@ -1,6 +1,6 @@
-import { ITestState } from './ITestState';
-import { TestObservableState } from './TestObservableState';
-import { initialState1 as initialState } from './InitialState';
+import { ITestState } from './setup/ITestState';
+import { TestObservableState } from './setup/TestObservableState';
+import { initialState1 as initialState } from './setup/InitialState';
 
 describe('Deriving a class from Observable State', () => {
 
