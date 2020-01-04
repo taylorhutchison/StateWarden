@@ -1,7 +1,7 @@
 import { ITestState } from "./ITestState";
-import { ObservableState } from '../../src/ObservableState';
+import { StateWarden } from '../../src/StateWarden';
 
-export class TestObservableState extends ObservableState<ITestState> {
+export class TestObservableState extends StateWarden<ITestState> {
     constructor(initialState: ITestState) {
         super(initialState);
     }

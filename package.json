@@ -1,21 +1,24 @@
 {
-  "name": "observablestate",
-  "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "name": "statewarden",
+  "version": "0.0.2-alpha",
+  "description": "A simple state management solution for Angular applications.",
+  "main": "lib/StateWarden.js",
+  "types": "lib/StateWarden.d.ts",
   "scripts": {
-    "test": "tsc --project tsconfig.spec.json && karma start && rm -rf out-test"
+    "test": "karma start"
   },
+  "files": ["lib/**/*"],
+  "keywords": ["State Management", "Angular", "Typescript", "RxJS", "State"],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/taylorhutchison/ObservableState.git"
+    "url": "git+https://github.com/taylorhutchison/StateWarden.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Taylor Hutchison",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/taylorhutchison/ObservableState/issues"
+    "url": "https://github.com/taylorhutchison/StateWarden/issues"
   },
-  "homepage": "https://github.com/taylorhutchison/ObservableState#readme",
+  "homepage": "https://github.com/taylorhutchison/StateWarden",
   "dependencies": {
     "@types/jasmine": "^3.5.0",
     "@types/node": "^13.1.1",

@@ -1,7 +1,7 @@
 import { ITestState } from './setup/ITestState';
 import { TestObservableState } from './setup/TestObservableState';
 import { initialState1 as initialState } from './setup/InitialState';
-import { History } from '../src/ObservableState';
+import { History } from '../src/StateWarden';
 
 describe('Observable State History', () => {
 

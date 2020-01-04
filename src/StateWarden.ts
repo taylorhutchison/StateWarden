@@ -1,6 +1,6 @@
 import { Subject, Observable, Subscriber, Subscription } from 'rxjs';
 
-export abstract class ObservableState<T> extends Observable<T> {
+export abstract class StateWarden<T> extends Observable<T> {
 
     private _value!: Readonly<T>;
     private _subscriber!: Subscriber<T>;
@@ -13,7 +13,7 @@ export abstract class ObservableState<T> extends Observable<T> {
         }
         super(obs);
         this._subscription = this.subscribe();
-        ObservableState.deepFreeze(initialState);
+        StateWarden.deepFreeze(initialState);
         this._history = new History<T>(10, initialState);
         this._value = initialState;
     }
@@ -45,7 +45,7 @@ export abstract class ObservableState<T> extends Observable<T> {
     protected update(func: (current: Readonly<T>) => T) {
         try {
             const nextState = func(this._value);
-            ObservableState.deepFreeze(nextState);
+            StateWarden.deepFreeze(nextState);
             this._value = nextState;
             this._history.enqueue(this._value);
             this._subscriber.next(this._value);
