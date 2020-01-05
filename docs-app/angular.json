@@ -41,6 +41,7 @@
               ],
               "optimization": true,
               "outputHashing": "all",
+              "baseHref": "statewarden",
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
