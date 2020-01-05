@@ -41,6 +41,10 @@
               ],
               "optimization": true,
               "outputHashing": "all",
+<<<<<<< Updated upstream:docs/examples/angular/example/angular.json
+=======
+              "baseHref": "/statewarden/",
+>>>>>>> Stashed changes:docs-app/angular.json
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
