@@ -41,7 +41,7 @@
               ],
               "optimization": true,
               "outputHashing": "all",
-              "baseHref": "statewarden",
+              "deployUrl": "/statewarden/",
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
