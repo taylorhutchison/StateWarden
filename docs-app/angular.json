@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/example",
+            "outputPath": "../docs",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -41,10 +41,7 @@
               ],
               "optimization": true,
               "outputHashing": "all",
-<<<<<<< Updated upstream:docs/examples/angular/example/angular.json
-=======
               "baseHref": "/statewarden/",
->>>>>>> Stashed changes:docs-app/angular.json
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
